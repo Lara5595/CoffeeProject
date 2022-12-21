@@ -1,4 +1,4 @@
-package com.example.coffeeproject;
+package com.coffeproject.coffeeproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
