@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class CoffeeController {
@@ -23,6 +26,15 @@ public class CoffeeController {
     }
 
 
+//    HomePage
+    @GetMapping("/home")
+    public String homePage(Model model){
+        List<Coffee> coffees = coffeeDao.findAll();
+        model.addAttribute("coffees", coffees);
+        return "homePage";
+    }
+
+
 //    This takes you to create coffee page
     @GetMapping("/create")
     public String CreateACoffee(Model model){
@@ -36,6 +48,18 @@ public class CoffeeController {
         coffeeDao.save(coffee);
         return "redirect:/";
     }
+
+
+//    This takes you to the edit page
+
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable long id){
+        Coffee coffee = coffeeDao.findById(id);
+        model.addAttribute("coffee", coffee);
+        return "/editCoffee";
+    }
+
+
 
 
 }
