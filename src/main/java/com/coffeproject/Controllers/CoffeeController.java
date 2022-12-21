@@ -46,7 +46,7 @@ public class CoffeeController {
     @PostMapping("/create")
     public String postACoffee(@ModelAttribute Coffee coffee){
         coffeeDao.save(coffee);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 
