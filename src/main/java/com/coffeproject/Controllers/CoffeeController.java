@@ -1,7 +1,10 @@
 package com.coffeproject.Controllers;
 
 import com.coffeproject.Models.Coffee;
+import com.coffeproject.Models.User;
 import com.coffeproject.Repositories.CoffeeRepository;
+import com.coffeproject.Repositories.UserRepository;
+import com.coffeproject.Services.Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +19,12 @@ public class CoffeeController {
 
     private final CoffeeRepository coffeeDao;
 
-    public CoffeeController(CoffeeRepository coffeeDao) {
+    private final UserRepository userDao;
+
+
+    public CoffeeController(CoffeeRepository coffeeDao, UserRepository userDao) {
         this.coffeeDao = coffeeDao;
+        this.userDao = userDao;
     }
 
     @GetMapping("/")
@@ -45,6 +52,11 @@ public class CoffeeController {
 //    This post the coffee
     @PostMapping("/create")
     public String postACoffee(@ModelAttribute Coffee coffee){
+        User user = Utils.currentUser();
+        if (user.getId() == 0){
+            return "redirect:/login";
+        }
+        coffee.setUser(user);
         coffeeDao.save(coffee);
         return "redirect:/home";
     }
@@ -70,10 +82,20 @@ public class CoffeeController {
 //    This is for delete
 
     @GetMapping("/{id}/delete")
-    public String deleteCoffee(@PathVariable long id, Coffee coffee){
-        Coffee coffeeid = coffeeDao.findById(id);
+    public String deleteCoffee(Coffee coffee){
         coffeeDao.delete(coffee);
         return "redirect:/home";
+    }
+
+
+
+    //    profile
+    @GetMapping("/profile")
+    public String profile(Model model){
+        User user = userDao.findById(Utils.currentUserProfile());
+        List<Coffee> coffees = user.getUsersCoffee();
+        model.addAttribute("coffees", coffees);
+        return "profile";
     }
 
 }

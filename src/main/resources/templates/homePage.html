@@ -12,9 +12,10 @@
         <div class="card">
             <h5 th:text="${coffee.roast}"></h5>
             <span th:text="${coffee.getCoffeeName}"></span>
+            <p th:if="${coffee.user.id} == ${#authentication.principal.id}">
             <a th:data-id="${coffee.id}" class="editButton"><button class="editButton">Edit </button></a>
             <a th:data-id="${coffee.id}" class="deleteButton"><button class="deleteButton">Delete </button></a>
-
+            </p>
         </div>
         </div>
     </div>
