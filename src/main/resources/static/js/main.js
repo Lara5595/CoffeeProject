@@ -1,6 +1,6 @@
 
 $(".editButton").click(function (){
-    alert("hello")
+    window.location.replace(`/${$(this).attr("data-id")}/edit`)
 })
 
 

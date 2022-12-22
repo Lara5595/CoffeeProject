@@ -66,4 +66,14 @@ public class CoffeeController {
         return "redirect:/home";
     }
 
+
+//    This is for delete
+
+    @GetMapping("/{id}/delete")
+    public String deleteCoffee(@PathVariable long id, Coffee coffee){
+        Coffee coffeeid = coffeeDao.findById(id);
+        coffeeDao.delete(coffee);
+        return "redirect:/home";
+    }
+
 }
