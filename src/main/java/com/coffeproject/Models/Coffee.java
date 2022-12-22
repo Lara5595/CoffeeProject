@@ -1,6 +1,7 @@
 package com.coffeproject.Models;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "coffee")
@@ -44,8 +45,16 @@ public class Coffee {
         this.coffeeName = coffeeName;
     }
 
+    public User getUser() {
+        return user;
+    }
 
-//    Constructors
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+    //    Constructors
 
 
     public Coffee() {
@@ -63,6 +72,10 @@ public class Coffee {
         this.coffeeName = coffeeName;
     }
 
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 }
