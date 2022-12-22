@@ -5,21 +5,22 @@
 </head>
 <body>
 
-<nav th:replace="partials/partials :: bootstrap-nav"></nav>
-<body>
+<nav th:replace="partials/partials.html :: bootstrap-nav"></nav>
 
 <div th:fragment="bootstrap-cards" class="rowA">
     <div class="column" th:each="coffee : ${coffees}">
         <div class="card">
             <h5 th:text="${coffee.roast}"></h5>
             <span th:text="${coffee.getCoffeeName}"></span>
-            <a th:data-id="${coffee.id}" class="editButton"><button>Edit </button></a>
+            <a th:data-id="${coffee.id}" class="editButton"><button class="editButton">Edit </button></a>
 
         </div>
         </div>
     </div>
 
 
+<div th:replace="partials/partials.html :: scripts">
+</div>
 
 </body>
 </html>

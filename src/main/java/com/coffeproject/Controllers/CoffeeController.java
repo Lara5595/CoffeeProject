@@ -60,6 +60,10 @@ public class CoffeeController {
     }
 
 
-
+    @PostMapping("/{id}/edit")
+    public String editCoffee(@ModelAttribute Coffee coffee){
+        coffeeDao.save(coffee);
+        return "redirect:/home";
+    }
 
 }
