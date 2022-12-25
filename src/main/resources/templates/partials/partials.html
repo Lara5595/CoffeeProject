@@ -48,7 +48,7 @@
       <a class="nav-link" href="/login"><span class="fas fa-sign-in-alt"></span> Login</a>
     </li>
 
-    <li> <form id="logoutForm" th:action="@{/logout}" method="post">
+    <li sec:authorize="isAuthenticated()"> <form id="logoutForm" th:action="@{/logout}" method="post">
     </form><a href="#" class="btn btn-md border border-secondary rounded" onclick="document.getElementById('logoutForm').submit();">Log Out</a></li>
 
 
