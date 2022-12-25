@@ -7,10 +7,37 @@
 
 <nav th:replace="partials/partials :: bootstrap-nav"></nav>
 
-<h1>Hello Welcome to our Page</h1>
+
+<div class="container-fluid my-4 bg-light rounded-3 py-4 px-0 " id="main-heading" style="background-image: url('/img/coffee-and-code-header.webp'); height: 346px" >
+    <h1 class="display-2 text-center bg-light bg-opacity-75 my-5">Best way to code is with a coffee!</h1>
+</div>
+<!--jumbotron ^-->
 
 
-
+<!--Cards-->
+<div class="card-group">
+    <div class="card">
+        <img class="card-img-top" src="/img/heartCoffee.jpeg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Add A Coffee</h5>
+            <p class="card-text">Sign up and create your favorite coffee list.</p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="/img/groupCoffee.jpeg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Connect with others through coffee</h5>
+            <p class="card-text">You can view other users coffee.</p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="/img/cofeeCream.jpeg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Explore millions of coffees</h5>
+            <p class="card-text">So many mouth watering coffees to explore.</p>
+        </div>
+    </div>
+</div>
 
 
 <div th:replace="partials/partials :: scripts"></div>
