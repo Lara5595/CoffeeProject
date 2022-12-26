@@ -3,3 +3,9 @@
     background-color: rgb(128,161,85);
     height: 80px;
 }
+
+.containerLogin {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+}
