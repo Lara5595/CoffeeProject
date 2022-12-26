@@ -23,28 +23,20 @@
 <!--  </form>-->
 <!--</div>-->
 
-
-<div class="containerLogin">
-  <form class="form-section" th:action="@{/login}" method="post">
-          <div th:if="${param.error}" class="invalidText">
-            <p>Invalid Username Or Password</p>
-          </div>
-  <!-- Email input -->
-  <div class="form-outline mb-4">
-          <input type="text" name="username" class="input-design" placeholder="Username">
-  </div>
-  <!-- Password input -->
-  <div class="form-outline mb-4">
-          <input type="password" name="password" class="password input-design" placeholder="Password">
-  </div>
-
-  <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4" value="Log in">Sign in</button>
-  <!-- Register buttons -->
-  <div class="text-center">
-    <p>Not a member?  <a th:href="@{/register}">Sign Up</a></p>
-  </div>
-</form>
+<div class="container">
+    <form class="form-section" th:action="@{/login}" method="post">
+        <div class="login-box">
+            <h1 class="heading">StudyVERSE</h1>
+            <div th:if="${param.error}" class="invalidText">
+                <p>Invalid Username Or Password</p>
+            </div>
+            <h2>Log In</h2>
+            <input type="text" name="username" class="input-design" placeholder="Username">
+            <input type="password" name="password" class="password input-design" placeholder="Password">
+            <button class="login-button" type="submit" value="Log in">Login</button>
+            <a th:href="@{/register}">Sign Up</a>
+        </div>
+    </form>
 </div>
 
 
