@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:fragment="head (title)">
+<head>
+  <div th:fragment="head-fragment(title)" th:remove="tag">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+   <title th:text="${title}"></title>
   <!--    favicon-->
   <link rel="icon" type="image/x-icon" href="/img/cropped-Favicon.webp">
-  <title th:text="${title}">Partials</title>
   <link rel="stylesheet" href="/css/style.css">
 
   <!--    Bootstrap-->
@@ -16,6 +17,7 @@
   <!--    Thyme leaf css-->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/login.css">
+  </div>
 
 </head>
 <body>
