@@ -8,3 +8,8 @@
     text-decoration: none;
     color: white;
 }
+
+.card.rowForCards {
+    display: inline-table;
+    margin: 1rem;
+}
