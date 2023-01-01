@@ -15,6 +15,36 @@
 <nav th:replace="partials/partials.html :: bootstrap-nav"></nav>
 
 
+<div class="thebigdiv row">  <!-- The big div wraps coffees -->
+    <div class="output col-6 " style="column-count: 2"> <!-- output and coffee input have a col-6 so its side by side. --->
+        <table>
+            <tbody id="coffees"></tbody>
+        </table>
+    </div>
+    <div class="coffeeInputs col-6"> <!-- output and coffee input have a col-6 so its side by side --->
+        <form>
+            <label for="roast-selection">Roast</label><br>
+            <select id="roast-selection">
+                <option class="all">all</option>
+                <option class="light">light</option>
+                <option class="medium">medium</option>
+                <option class="dark">dark</option>
+            </select>
+            <br>
+            <!--        Created input text for Coffee Name-->
+            <label for="filterInput">Coffee Name</label><br>
+            <input type="text" autocomplete="off" id="filterInput" onfocus="this.value=''" value="Search for coffee">
+            <br>
+            <input id="submit" type="submit" />
+            <!--        -->
+        </form>
+    </div>
+</div>
+
+
+
+
+
 
 <div class="card rowForCards" th:each="coffee : ${coffees}" style="width: 18rem;">
     <img class="card-img-top" src="/img/bean-heart.jpeg" alt="Card image cap">
