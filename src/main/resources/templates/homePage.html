@@ -14,25 +14,13 @@
 
 <nav th:replace="partials/partials.html :: bootstrap-nav"></nav>
 
-<!--<div th:fragment="bootstrap-cards" class="rowA">-->
-<!--    <div class="column" th:each="coffee : ${coffees}">-->
-<!--        <div class="card">-->
-<!--            <h5 th:text="${coffee.roast}"></h5>-->
-<!--            <span th:text="${coffee.getCoffeeName}"></span>-->
-<!--            <p th:if="${coffee.user.id} == ${#authentication.principal.id}">-->
-<!--            <a th:data-id="${coffee.id}" class="editButton"><button class="editButton">Edit </button></a>-->
-<!--            <a th:data-id="${coffee.id}" class="deleteButton"><button class="deleteButton">Delete </button></a>-->
-<!--            </p>-->
-<!--        </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
 
 
 <div class="card rowForCards" th:each="coffee : ${coffees}" style="width: 18rem;">
     <img class="card-img-top" src="/img/bean-heart.jpeg" alt="Card image cap">
     <div class="card-body">
         <h3 th:text="${coffee.getCoffeeName()}"></h3>
+        <h5 th:text="${coffee.getRoast()}"></h5>
         <p th:if="${coffee.user.id} == ${#authentication.principal.id}">
             <a th:data-id="${coffee.id}" class="editButton"><button class="editButton">Edit </button></a>
             <a th:data-id="${coffee.id}" class="deleteButton"><button class="deleteButton">Delete </button></a>
